@@ -18,6 +18,18 @@ const List = () => {
   const [type, setType] = useState("restaurants");
   const [rating, setRating] = useState("");
 
+  const places = [
+    { name: "cool place" },
+    { name: "Best place" },
+    { name: "awesome place" },
+    { name: "cool place" },
+    { name: "Best place" },
+    { name: "awesome place" },
+    { name: "cool place" },
+    { name: "Best place" },
+    { name: "awesome place" },
+  ];
+
   return (
     <div className={classes.container}>
       <Typography variant="h6">
@@ -40,6 +52,12 @@ const List = () => {
           <MenuItem value={4.5}>Above 4.5</MenuItem>
         </Select>
       </FormControl>
+      <Grid container spacing={3} className={classes.list}></Grid>
+          {places?.map((place, i) => (
+            <Grid item key={i} xs={12}>
+              <PlaceDetails place={place}></PlaceDetails>
+            </Grid>
+          ))}
     </div>
   );
 };
